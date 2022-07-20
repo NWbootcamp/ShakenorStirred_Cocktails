@@ -1,0 +1,9 @@
+body {
+    background-image: url("images/Landing_Page_Background.jpg");
+    background-size: cover;
+}
+
+
+.LandingPage {
+    color: green;
+}
