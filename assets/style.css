@@ -3,7 +3,18 @@ body {
     background-size: cover;
 }
 
+#logo {
+    width: 150px;
+}
 
 .LandingPage {
     color: green;
 }
+
+footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+ 
