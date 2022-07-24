@@ -50,6 +50,7 @@ function getRandomAlcDrink() {
         var drink = response.drinks[randomDrinkIndex].strDrink
 
         getDrinkRecipe(drink)
+        getDrinkPhoto(drink)
 
     })
 }
@@ -172,6 +173,45 @@ function getDrinkRecipe(drink) {
 
 getRandomAlcDrink()
 
+// non alcoholic drink photo
+
+function getNonAlcDrinkPhoto(drink) {
+    var initialUrl = "https://api.pexels.com/v1/search?page=1&query="
+    const fullPhotoUrl = initialUrl.concat(drink +  "drink")
+    console.log(fullPhotoUrl)
+    fetch(fullPhotoUrl)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (response) {
+        var drinkPhoto = response.photos[0].src.tiny
+        var drinkImg = document.getElementById('drink-photo')
+        drinkImg.style.width = '200px';
+        drinkImg.style.height = 'auto';
+        drinkImg.src = drinkPhoto
+    })
+}
+// alcoholic drink photo
+
+function getDrinkPhoto(drink) {
+    var initialUrl ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
+    const fullPhotoUrl = initialUrl.concat(drink)
+    console.log(fullPhotoUrl)
+    fetch(fullPhotoUrl)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (response) {
+        console.log(fullPhotoUrl)
+        var drinkPhoto = response.drinks[0].strDrinkThumb
+        console.log(drinkPhoto)
+        var drinkImg = document.getElementById('drink-photo')
+        // drinkImg.style.width = '200px';
+        // drinkImg.style.height = 'auto';
+        drinkImg.src = drinkPhoto
+    })
+}
+
 
 
 //Under 21 Random API call
@@ -192,6 +232,7 @@ function getNonAlcDrink() {
         var drink = response.drinks[randomDrinkIndex].strDrink
 
         getDrinkRecipe(drink)
+        getNonAlcDrinkPhoto(drink)
 
     })
 }
