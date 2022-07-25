@@ -239,5 +239,5 @@ function getNonAlcDrink() {
 }
 
 
-// getRandomAlcDrink()
-getNonAlcDrink()
+getRandomAlcDrink()
+// getNonAlcDrink()
