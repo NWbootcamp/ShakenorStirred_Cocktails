@@ -3,7 +3,7 @@ var birthdayBox = document.querySelector('#txtDOB')
 var birthdaybtn = document.querySelector('.validate')
 
 if (birthdayBox){
-    birthdayBox.addEventListener('keypress', checkBday);
+    birthdayBox.addEventListener('keypress', checkBday)
 }
 
 if (birthdaybtn){
@@ -22,12 +22,12 @@ function validateBday (value) {
     console.log(years);
     if(years < 21) {
         console.log('child')
-        location.replace('under21.html')
+        window.location.replace('under21.html')
     }
     //if the person is 21 or over lead them to the second page where they can choose what their alcoholic preference
     else {
         console.log("twenty1")
-        location.replace('over21.html')
+        window.location.replace('options.html')
     }
 }
 
@@ -171,15 +171,16 @@ function getDrinkRecipe(drink) {
     })
 }
 
-getRandomAlcDrink()
-
 // non alcoholic drink photo
+
 
 function getNonAlcDrinkPhoto(drink) {
     var initialUrl = "https://api.pexels.com/v1/search?page=1&query="
-    const fullPhotoUrl = initialUrl.concat(drink +  "drink")
-    console.log(fullPhotoUrl)
-    fetch(fullPhotoUrl)
+    const fullPhotoUrl = initialUrl.concat(drink +  " drink")
+    fetch(fullPhotoUrl, {
+        headers: {
+          Authorization: '563492ad6f91700001000001f420bc160fac4f17978ccecb02a1e821Y'
+        }})
     .then(function (response) {
         return response.json();
     })
@@ -206,8 +207,8 @@ function getDrinkPhoto(drink) {
         var drinkPhoto = response.drinks[0].strDrinkThumb
         console.log(drinkPhoto)
         var drinkImg = document.getElementById('drink-photo')
-        // drinkImg.style.width = '200px';
-        // drinkImg.style.height = 'auto';
+        drinkImg.style.width = '200px';
+        drinkImg.style.height = 'auto';
         drinkImg.src = drinkPhoto
     })
 }
@@ -236,3 +237,7 @@ function getNonAlcDrink() {
 
     })
 }
+
+
+// getRandomAlcDrink()
+getNonAlcDrink()
