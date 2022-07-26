@@ -13,31 +13,54 @@ if (birthdayBox){
 }
 
 if (birthdaybtn){
-    birthdaybtn.addEventListener('click', validateBday)
+    birthdaybtn.addEventListener('click', function() {
+        if (birthdayBox.value.trim())
+        validateBday(birthdayBox.value)
+    })
 }
 
 function checkBday(event) {
     if (event.keyCode ==13) {
-        validateBday(birthdayBox.value)
+        if (birthdayBox.value == "") {
+            return
+        } else {
+        validateBday(birthdayBox.value);
         console.log(birthdayBox.value)
-    }
+        }}
 }
 
+//Call WorldClock API
 function validateBday (value) {
-    var years = moment().diff(value, 'years');
-    console.log(years);
-    if(years < 21) {
-        console.log('child')
-        window.location.replace('under21.html')
-    }
-    //if the person is 21 or over lead them to the second page where they can choose what their alcoholic preference
-    else {
-        console.log("twenty1")
-        window.location.replace('options.html')
-    }
-}
 
+    fetch("http://worldclockapi.com/api/json/est/now")
+    .then(function (response) {
 
+        return response.json();
+    })
+    .then(function (response) {
+        var date = response.currentDateTime
+        var currentYear = date.slice(0,4)
+        var currentYearNum = Number(currentYear)
+
+        var userYearNum = Number(value)
+
+        console.log(currentYearNum)
+        console.log(userYearNum)
+
+        var difference = currentYearNum - userYearNum 
+
+        if(difference < 21) {
+            console.log('child')
+            window.location.replace('under21.html')
+        }
+        //if the person is 21 or over lead them to the second page where they can choose what their alcoholic preference
+        else {
+            console.log("twenty1")
+            window.location.replace('options.html')
+        }
+
+    }
+    )}
 
 //Call choice from local storage
 
