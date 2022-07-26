@@ -1,6 +1,3 @@
-var over21DrinkSearches = []
-
-
 var nonAlcBtn = document.getElementById("nonAlc-btn")
 
 
@@ -51,11 +48,16 @@ function validateBday (value) {
 
         if(difference < 21) {
             console.log('child')
+            var under21DrinkSearches = ["Recent Drinks:"]
+
+            localStorage.setItem("under 21", under21DrinkSearches)
             window.location.replace('under21.html')
         }
         //if the person is 21 or over lead them to the second page where they can choose what their alcoholic preference
         else {
             console.log("twenty1")
+            var over21DrinkSearches = ["Recent Drinks:"]
+            localStorage.setItem("over 21", over21DrinkSearches)
             window.location.replace('options.html')
         }
 
@@ -136,6 +138,12 @@ function getRandomAlcDrink() {
 
         var drink = response.drinks[randomDrinkIndex].strDrink
 
+        var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
+    
+        over21DrinkSearches.unshift(drink)
+
+        localStorage.setItem("over 21", JSON.stringify(over21DrinkSearches))
+
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
 
@@ -159,6 +167,8 @@ function getRandomColdDrink() {
         const randomDrinkIndex = Math.floor(Math.random(response.drinks) * response.drinks.length)
 
         var drink = response.drinks[randomDrinkIndex].strDrink
+
+        var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
 
         over21DrinkSearches.unshift(drink)
 
@@ -188,6 +198,8 @@ function getRandomClassicDrink() {
 
         var drink = response.drinks[randomDrinkIndex].strDrink
 
+        var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
+
         over21DrinkSearches.unshift(drink)
 
         localStorage.setItem("over 21", JSON.stringify(over21DrinkSearches))
@@ -215,6 +227,8 @@ function getRandomPartyDrink() {
         const randomDrinkIndex = Math.floor(Math.random(response.drinks) * response.drinks.length)
 
         var drink = response.drinks[randomDrinkIndex].strDrink
+
+        var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
 
         over21DrinkSearches.unshift(drink)
 
@@ -244,6 +258,8 @@ function getRandomWhiskeyDrink() {
 
         var drink = response.drinks[randomDrinkIndex].strDrink
 
+        var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
+
         over21DrinkSearches.unshift(drink)
 
         localStorage.setItem("over 21", JSON.stringify(over21DrinkSearches))
@@ -271,6 +287,8 @@ function getRandomTequilaDrink() {
         const randomDrinkIndex = Math.floor(Math.random(response.drinks) * response.drinks.length)
 
         var drink = response.drinks[randomDrinkIndex].strDrink
+
+        var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
 
         over21DrinkSearches.unshift(drink)
 
@@ -300,6 +318,8 @@ function getRandomVodkaDrink() {
 
         var drink = response.drinks[randomDrinkIndex].strDrink
 
+        var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
+
         over21DrinkSearches.unshift(drink)
 
         localStorage.setItem("over 21", JSON.stringify(over21DrinkSearches))
@@ -325,6 +345,8 @@ function getRandomScotchDrink() {
         const randomDrinkIndex = Math.floor(Math.random(response.drinks) * response.drinks.length)
 
         var drink = response.drinks[randomDrinkIndex].strDrink
+        
+        var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
 
         over21DrinkSearches.unshift(drink)
 
