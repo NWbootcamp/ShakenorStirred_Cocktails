@@ -1,18 +1,53 @@
-html{
-    height: 100%;
-}
+
 body {
     background-image: url("images/Landing_Page_Background.jpg");
     background-size: cover;
-    height: 100%;
+   
+}
+header {
+    /* font-size: 60px; */
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    justify-content: center;
+} 
+h1{
+    font-size: 90px;
+}
+h2{
+    margin-top: 165px;
+    border-radius: 40px;
+    text-align: center;
+    justify-content:center;
+    border-spacing: 15px;
+    width: 900px;
+    margin-left: 192px;
+
+
+} 
+.z-depth-5 {
+       font-size: 32px;
+      }
+
+.card-content{
+
+    background-color: #e5e5e5;
+    border-radius: 40px;
+    border: solid;
+    margin-top: 25px;
+    text-align: center;
+    font-size: 25px;
+    width: 500px;
+    margin-left: 320px;
+   box-shadow: 10px 9px #ECC1C8;
+   
+
+}
+.btn-large{
+    background-color: #EBEBEB;
 }
 
 #logo {
     width: 150px;
-}
-
-.LandingPage {
-    color: green;
 }
 
 footer {

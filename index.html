@@ -4,28 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="assets/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
     <script src="https://kit.fontawesome.com/6d4035b361.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=family=Lobster+Two:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
+
 
     <title>Shaken Or Stirred</title>
 </head>
 <body>
-    
-    <div class="LandingPage">
-        <header>
-            <h1> Shaken Or Stirred</h1>
-            <br>
-            <h2> We're here to shake up your gatherings and stir in a little fun</h2>
-        </header>    
+    <div class="container">
+        <div class="row">
+          <div class="col s12">
+        
+              <header>
+                 <h1> Shaken Or Stirred</h1>
+                 <br>
+                 <br>
+                 <br>
+                 <br>
+                </header>    
+                 <h2 class="z-depth-5 flow-text "> We're here to shake up your gatherings and stir in a little fun</h2>
+              
 
-        <div class="validation">
-            First thing's first, when's your birthday?
-            <br>
-            <br>
-            <input id="txtDOB" type="text" name="txtDOB" placeholder="format: MM / DD/ YYYY">
-            <br>
-            <button><i class="fa-solid fa-martini-glass validate"></i></button>
+              <div class="card-content" >
+                 First thing's first, enter your birth year:
+                 <br>
+                 <br>
+                 <input id="txtDOB" type="number" name="txtDOB" placeholder="format:YYYY" class="validate">
+                 <br>
+                  <button class="waves-effect waves-light btn-large "><i class="fa-solid fa-martini-glass"></i></button>
+              </div>
+            </div>
         </div>
     </div>
 
@@ -34,7 +45,7 @@
     </footer>
 
     <script src="assets/script.js"></script>
-    <script  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </body>
 </html>
