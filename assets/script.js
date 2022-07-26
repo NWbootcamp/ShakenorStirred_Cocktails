@@ -1,4 +1,4 @@
-var nonAlcBtn = document.getElementById("nonAlc-btn")
+var userChoice = localStorage.getItem("choice")
 
 
 //Landing Page, when the person enters their bday validate whether 21+
@@ -35,6 +35,11 @@ function validateBday (value) {
         return response.json();
     })
     .then(function (response) {
+
+        if (userChoice != false) {
+            localStorage.setItem("choice", JSON.stringify(""))
+
+        }
         var date = response.currentDateTime
         var currentYear = date.slice(0,4)
         var currentYearNum = Number(currentYear)
@@ -48,16 +53,16 @@ function validateBday (value) {
 
         if(difference < 21) {
             console.log('child')
-            var under21DrinkSearches = ["Recent Drinks:"]
-
-            localStorage.setItem("under 21", under21DrinkSearches)
+            var under21DrinkSearches = [""]
+            localStorage.setItem("under 21", JSON.stringify(under21DrinkSearches))
+            localStorage.setItem("choice", "under21")
             window.location.replace('under21.html')
         }
         //if the person is 21 or over lead them to the second page where they can choose what their alcoholic preference
         else {
             console.log("twenty1")
-            var over21DrinkSearches = ["Recent Drinks:"]
-            localStorage.setItem("over 21", over21DrinkSearches)
+            var over21DrinkSearches = [""]
+            localStorage.setItem("over 21",  JSON.stringify(over21DrinkSearches))
             window.location.replace('options.html')
         }
 
@@ -66,10 +71,9 @@ function validateBday (value) {
 
 //Call choice from local storage
 
-var userChoice = localStorage.getItem("choice")
-
-console.log(userChoice)
-
+if (userChoice === "under21") {
+    getNonAlcDrink()
+}
 if (userChoice === "shake") {
     getRandomColdDrink()
 }
@@ -80,7 +84,7 @@ if (userChoice === "party") {
     getRandomPartyDrink()
 }
 if (userChoice === "non-alc") {
-    getNonAlcDrink()
+    getOver21NonAlcDrink()
 }
 if (userChoice === "adult-random") {
     getRandomAlcDrink()
@@ -101,7 +105,7 @@ if (userChoice === "scotch") {
 
 //Under 21 Random API call
 
-var goBtn = document.getElementById("go-button")
+var childRandomBtn = document.getElementById("searchBtn")
 
 function getNonAlcDrink() {
     fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic")
@@ -115,8 +119,44 @@ function getNonAlcDrink() {
 
         var drink = response.drinks[randomDrinkIndex].strDrink
 
+        var under21DrinkSearches = JSON.parse(localStorage.getItem("under 21"))
+    
+        under21DrinkSearches.unshift(drink)
+
+        localStorage.setItem("under 21", JSON.stringify(under21DrinkSearches))
+
         getDrinkRecipe(drink)
         getNonAlcDrinkPhoto(drink)
+        getRecenUnderList(drink)
+    })
+}
+
+
+
+//Over 21 Non-Alc Random API call
+var nonAlcBtn = document.getElementById("nonAlc-btn")
+
+function getOver21NonAlcDrink() {
+    fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic")
+    .then(function (response) {
+
+        return response.json();
+    })
+    .then(function (response) {
+
+        const randomDrinkIndex = Math.floor(Math.random(response.drinks) * response.drinks.length)
+
+        var drink = response.drinks[randomDrinkIndex].strDrink
+
+        var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
+    
+        over21DrinkSearches.unshift(drink)
+
+        localStorage.setItem("over 21", JSON.stringify(over21DrinkSearches))
+
+        getDrinkRecipe(drink)
+        getNonAlcDrinkPhoto(drink)
+        getRecenOverList(drink)
     })
 }
 
@@ -146,6 +186,7 @@ function getRandomAlcDrink() {
 
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
+        getRecenOverList(drink)
 
     })
 }
@@ -176,6 +217,7 @@ function getRandomColdDrink() {
 
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
+        getRecenOverList(drink)
 
     })
 }
@@ -206,6 +248,7 @@ function getRandomClassicDrink() {
 
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
+        getRecenOverList(drink)
 
     })
 }
@@ -236,6 +279,7 @@ function getRandomPartyDrink() {
 
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
+        getRecenOverList(drink)
 
     })
 }
@@ -266,6 +310,7 @@ function getRandomWhiskeyDrink() {
 
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
+        getRecenOverList(drink)
 
     })
 }
@@ -296,6 +341,7 @@ function getRandomTequilaDrink() {
 
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
+        getRecenOverList(drink)
 
     })
 }
@@ -326,6 +372,7 @@ function getRandomVodkaDrink() {
 
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
+        getRecenOverList(drink)
 
     })
 }
@@ -354,6 +401,7 @@ function getRandomScotchDrink() {
 
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
+        getRecenOverList(drink)
 
     })
 }
@@ -478,6 +526,44 @@ function getDrinkRecipe(drink) {
 
 
 
+//Append over 21 local storage items
+
+function getRecenOverList(drink) {
+    var over21search = JSON.parse(localStorage.getItem('over 21'))
+    var overList = document.getElementById("recent-searches")
+
+    let i = 0
+
+    while (i < 5 && i < over21search.length){
+        var searchListItem = document.createElement("li")
+        searchListItem.textContent = over21search[i]
+        searchListItem.setAttribute('city-name', over21search[i])
+        overList.appendChild(searchListItem)
+        i++
+    }
+}
+
+
+
+//Append under 21 local storage items
+
+function getRecenUnderList(drink) {
+    var under21search = JSON.parse(localStorage.getItem('under 21'))
+    var underList = document.getElementById("recent-searches")
+
+    let i = 0
+
+    while (i < 5 && i < under21search.length){
+        var searchListItem = document.createElement("li")
+        searchListItem.textContent = under21search[i]
+        searchListItem.setAttribute('city-name', under21search[i])
+        underList.appendChild(searchListItem)
+        i++
+    }
+}
+
+
+
 //Alcoholic drink photo
 
 function getDrinkPhoto(drink) {
@@ -583,5 +669,12 @@ if (scotchBtn){
     scotchBtn.addEventListener('click', function(){
         localStorage.setItem("choice", "scotch")
         window.location.replace('over21.html')
+    })
+}
+
+if (childRandomBtn){
+    childRandomBtn.addEventListener('click', function(){
+        localStorage.setItem("choice", "under21")
+        window.location.replace('under21.html')
     })
 }
