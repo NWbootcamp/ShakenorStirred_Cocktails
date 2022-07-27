@@ -29,7 +29,7 @@ function checkBday(event) {
 //Call WorldClock API
 function validateBday (value) {
 
-    fetch("http://worldclockapi.com/api/json/est/now")
+    fetch("https://worldclockapi.com/api/json/est/now")
     .then(function (response) {
 
         return response.json();
