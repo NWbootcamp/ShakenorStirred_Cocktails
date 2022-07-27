@@ -29,7 +29,7 @@ function checkBday(event) {
 //Call WorldClock API
 function validateBday (value) {
 
-    fetch("https://worldclockapi.com/api/json/est/now")
+    fetch("https://api.timezonedb.com/v2.1/get-time-zone?key=JZG5VJ8BG4BQ&format=json&by=position&lat=40.689247&lng=-74.044502")
     .then(function (response) {
 
         return response.json();
@@ -40,7 +40,7 @@ function validateBday (value) {
             localStorage.setItem("choice", JSON.stringify(""))
 
         }
-        var date = response.currentDateTime
+        var date = response.formatted
         var currentYear = date.slice(0,4)
         var currentYearNum = Number(currentYear)
 
@@ -520,6 +520,8 @@ function getDrinkRecipe(drink) {
             ingListItem15.textContent = response.drinks[0].strIngredient15
             ingList.appendChild(ingListItem15)
         }
+
+        localStorage.setItem("choice", "Waiting for a choice")
 
     })
 }
