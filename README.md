@@ -1,7 +1,7 @@
 # Shaken Or Stirred
 Developers: Michelle Shelton, Jelena Tomic, and Nermin Dracic
     
-![](./assets/images/Screen%20Shot%202022-07-26%20at%207.20.59%20PM.png)
+![](./assets/images/landingSC.png)
 
 ## Table of contents
 * [General Info](#summary)
@@ -48,7 +48,6 @@ From Git Hub repository, ShakenorStirred_Cocktails, click CODE box, select SSH a
 ## How to Use?
 
 * On the landing page, users are introduced to the abilities of the site and prompted to input their birth year. Once the year is inputed, the site compares the users age to the current year which is pulled from the TimeZoneDB API before directing the user to a new page
-![](./assets/images/Screen%20Shot%202022-07-26%20at%207.20.59%20PM.png)
 
 * If the user is under 21, they are directed to a page that displays a random non-alcoholic drink pulled from TheCocktailDB API including its name, ingredients, and instructions to make it. The page also shows a photo of the drink pulled from the Pexels API. Local storage is used to store past drink names which are then appended to the page. There is also a button that allows users to call new drinks.
 ![](./assets/images/Under21SC.png)
@@ -57,7 +56,7 @@ From Git Hub repository, ShakenorStirred_Cocktails, click CODE box, select SSH a
 ![](./assets/images/optionsSC.png)
 
 * Once the user has chosen an option, they are brought to a page that displays a random drink based on the user’s choices pulled from TheCocktailDB API including its name, photo, ingredients, and instructions to make it. Local storage is used to store past drink names which are then appended to the page. There is also buttons that allow users to call new drinks based on the same choices as the previous page.
-![](./assets/images/over21SC.png)
+![](./assets/images/over21.png)
 ---
 
 ### Working Agreement
