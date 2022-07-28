@@ -4,52 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css" />
     <script src="https://kit.fontawesome.com/6d4035b361.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/under21.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=family=Lobster+Two:ital,wght@1,700&display=swap" rel="stylesheet">
 
-    <!-- <link rel="stylesheet" href="assets/style.css"/> -->
     <title>Shaken Or Stirred</title>
 </head>
 <body>
-    <header>Under 21 Recipe</header>
+    
     <main>
-
         <div class="container">
-            <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-                    <h2 class="has-text-left">Shake different one!</h2>
+            <div class="row">
+              <div class="col s12 m7">
+                  <div class="card">
+                     <img id="drink-photo"></img>
+                     <span class="card-title"><h2 id="drink-name"></h2></span>
+                  </div>
+                  <div class="card-content">
+                     <h3>Ingredients</h3>
+                     <ul id="ingredients"></ul>
+                  </div>
+                  <div class="card-action">
+                     <h4>Let's Make It!</h4>
+                     <p id="instructions"></p>
+                  </div>
+              </div>
+            </div>
+          
+        </div> 
+
+         <div class="row" >
+
+               <ul class="collection col s2" id="side">
+   
+                    <h4 class="has-text-left">Shake a Different One!</h4>
                     <br>
                     <div class="has-text">
-                        <a id="searchBtn" class="button"><strong><i class="fa-solid fa-shuffle"></i></strong></a>
+                        <a id="searchBtn" class="button btn-large"><strong><i class="fa-solid fa-shuffle"></i></strong></a>
                     </div>
+                    <h4>Search History</h4>
                     <ul id="searchHistory" class="col-12 shadow-sm">
-                        <li>popcorn</li>
+                        <li></li>
                     </ul>
+                    <div>
+                        <ul id="recent-searches">
+                        </ul>
+                    </div>
 
-                </div>
-              </nav>
- 
-        </div>
-    </main>
+                
+                </ul>
+            </div>
 
-    <div>
-        <h1>Recipe</h1>
-        <img id="drink-photo"></img>
-        <h2 id="drink-name"></h2>
-        <h3>Ingredients</h3>
-        <ul id="ingredients"></ul>
-        <h4>Let's Make It!</h4>
-        <p id="instructions"></p>
-    </div>
+         </div>
+         <footer>
+            <img id="logo" src="assets/images/Shaken or Stirred Logo Blank BG.png"></img>
+        </footer>
+    
 
-    <div>
-        <ul id="recent-searches">
-        </ul>
-    </div>
 
     <script src="assets/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     
 </body>
+</html>
 
 
 
