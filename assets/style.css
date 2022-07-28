@@ -35,6 +35,11 @@ h2 {
        font-size: 32px;
       }
 
+::placeholder{
+    text-align: center;
+    color: #ECC1C8;
+}
+
 .card-content {
     background-color: #e5e5e5;
     border-radius: 40px;
@@ -44,7 +49,8 @@ h2 {
     font-size: 25px;
     width: 500px;
     display: inline-block;
-    box-shadow: 10px 9px #ECC1C8;
+    box-shadow: 10px 9px 5px #ECC1C8;
+    opacity: 80%;
 }
 
 .btn-large{
