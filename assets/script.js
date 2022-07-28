@@ -22,37 +22,29 @@ function checkBday(event) {
             return
         } else {
         validateBday(birthdayBox.value);
-        console.log(birthdayBox.value)
         }}
 }
 
-//Call WorldClock API
+
+
+//Call Timezone API
+
 function validateBday (value) {
 
     fetch("https://api.timezonedb.com/v2.1/get-time-zone?key=JZG5VJ8BG4BQ&format=json&by=position&lat=40.689247&lng=-74.044502")
     .then(function (response) {
-
         return response.json();
     })
     .then(function (response) {
-
         if (userChoice != false) {
             localStorage.setItem("choice", JSON.stringify(""))
-
         }
         var date = response.formatted
         var currentYear = date.slice(0,4)
         var currentYearNum = Number(currentYear)
-
         var userYearNum = Number(value)
-
-        console.log(currentYearNum)
-        console.log(userYearNum)
-
         var difference = currentYearNum - userYearNum 
-
         if(difference < 21) {
-            console.log('child')
             var under21DrinkSearches = [""]
             localStorage.setItem("under 21", JSON.stringify(under21DrinkSearches))
             localStorage.setItem("choice", "under21")
@@ -60,14 +52,14 @@ function validateBday (value) {
         }
         //if the person is 21 or over lead them to the second page where they can choose what their alcoholic preference
         else {
-            console.log("twenty1")
             var over21DrinkSearches = [""]
             localStorage.setItem("over 21",  JSON.stringify(over21DrinkSearches))
             window.location.replace('options.html')
         }
+    })
+}
 
-    }
-    )}
+
 
 //Call choice from local storage
 
@@ -110,21 +102,14 @@ var childRandomBtn = document.getElementById("searchBtn")
 function getNonAlcDrink() {
     fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic")
     .then(function (response) {
-
         return response.json();
     })
     .then(function (response) {
-
         const randomDrinkIndex = Math.floor(Math.random(response.drinks) * response.drinks.length)
-
         var drink = response.drinks[randomDrinkIndex].strDrink
-
         var under21DrinkSearches = JSON.parse(localStorage.getItem("under 21"))
-    
         under21DrinkSearches.unshift(drink)
-
         localStorage.setItem("under 21", JSON.stringify(under21DrinkSearches))
-
         getDrinkRecipe(drink)
         getNonAlcDrinkPhoto(drink)
         getRecenUnderList(drink)
@@ -139,21 +124,14 @@ var nonAlcBtn = document.getElementById("nonAlc-btn")
 function getOver21NonAlcDrink() {
     fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic")
     .then(function (response) {
-
         return response.json();
     })
     .then(function (response) {
-
         const randomDrinkIndex = Math.floor(Math.random(response.drinks) * response.drinks.length)
-
         var drink = response.drinks[randomDrinkIndex].strDrink
-
         var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
-    
         over21DrinkSearches.unshift(drink)
-
         localStorage.setItem("over 21", JSON.stringify(over21DrinkSearches))
-
         getDrinkRecipe(drink)
         getNonAlcDrinkPhoto(drink)
         getRecenOverList(drink)
@@ -169,149 +147,110 @@ var adultRandomBtn = document.getElementById("21random")
 function getRandomAlcDrink() {
     fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
     .then(function (response) {
-
         return response.json();
     })
     .then(function (response) {
-
         const randomDrinkIndex = Math.floor(Math.random(response.drinks) * response.drinks.length)
-
         var drink = response.drinks[randomDrinkIndex].strDrink
-
         var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
-    
         over21DrinkSearches.unshift(drink)
-
         localStorage.setItem("over 21", JSON.stringify(over21DrinkSearches))
-
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
         getRecenOverList(drink)
-
     })
 }
 
 
 
 //Shake API call
+
 var shakeBtn = document.getElementById("shake-btn")
 
 function getRandomColdDrink() {
-
     fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=shake")
     .then(function (response) {
-
         return response.json();
     })
     .then(function (response) {
-
         const randomDrinkIndex = Math.floor(Math.random(response.drinks) * response.drinks.length)
-
         var drink = response.drinks[randomDrinkIndex].strDrink
-
         var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
-
         over21DrinkSearches.unshift(drink)
-
         localStorage.setItem("over 21", JSON.stringify(over21DrinkSearches))
-
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
         getRecenOverList(drink)
-
     })
 }
 
 
 
 //Classic API call
+
 var classicBtn = document.getElementById("classic-btn")
 
 function getRandomClassicDrink() {
 
     fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail")
     .then(function (response) {
-
         return response.json();
     })
     .then(function (response) {
-
         const randomDrinkIndex = Math.floor(Math.random(response.drinks) * response.drinks.length)
-
         var drink = response.drinks[randomDrinkIndex].strDrink
-
         var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
-
         over21DrinkSearches.unshift(drink)
-
         localStorage.setItem("over 21", JSON.stringify(over21DrinkSearches))
-
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
         getRecenOverList(drink)
-
     })
 }
 
 
 
 //Party API call
+
 var partyBtn = document.getElementById("party-btn")
 
 function getRandomPartyDrink() {
-
     fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Punch / Party Drink")
     .then(function (response) {
-
         return response.json();
     })
     .then(function (response) {
-
         const randomDrinkIndex = Math.floor(Math.random(response.drinks) * response.drinks.length)
-
         var drink = response.drinks[randomDrinkIndex].strDrink
-
         var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
-
         over21DrinkSearches.unshift(drink)
-
         localStorage.setItem("over 21", JSON.stringify(over21DrinkSearches))
-
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
         getRecenOverList(drink)
-
     })
 }
 
 
 
 //Whiskey API call
+
 var whiskeyBtn = document.getElementById("whiskey-btn")
 
 function getRandomWhiskeyDrink() {
-
     fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Whiskey")
     .then(function (response) {
-
         return response.json();
     })
     .then(function (response) {
-
         const randomDrinkIndex = Math.floor(Math.random(response.drinks) * response.drinks.length)
-
         var drink = response.drinks[randomDrinkIndex].strDrink
-
         var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
-
         over21DrinkSearches.unshift(drink)
-
         localStorage.setItem("over 21", JSON.stringify(over21DrinkSearches))
-
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
         getRecenOverList(drink)
-
     })
 }
 
@@ -321,88 +260,66 @@ function getRandomWhiskeyDrink() {
 var tequilaBtn = document.getElementById("tequila-btn")
 
 function getRandomTequilaDrink() {
-
     fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Tequila")
     .then(function (response) {
-
         return response.json();
     })
     .then(function (response) {
-
         const randomDrinkIndex = Math.floor(Math.random(response.drinks) * response.drinks.length)
-
         var drink = response.drinks[randomDrinkIndex].strDrink
-
         var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
-
         over21DrinkSearches.unshift(drink)
-
         localStorage.setItem("over 21", JSON.stringify(over21DrinkSearches))
-
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
         getRecenOverList(drink)
-
     })
 }
 
 
 
 //Vodka API call
+
 var vodkaBtn = document.getElementById("vodka-btn")
 
 function getRandomVodkaDrink() {
 
     fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=vodka")
     .then(function (response) {
-
         return response.json();
     })
     .then(function (response) {
-
         const randomDrinkIndex = Math.floor(Math.random(response.drinks) * response.drinks.length)
-
         var drink = response.drinks[randomDrinkIndex].strDrink
-
         var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
-
         over21DrinkSearches.unshift(drink)
-
         localStorage.setItem("over 21", JSON.stringify(over21DrinkSearches))
-
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
         getRecenOverList(drink)
-
     })
 }
 
 
+
+//Scotch API call
+
 var scotchBtn = document.getElementById("scotch-btn")
 
 function getRandomScotchDrink() {
-
     fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=scotch")
     .then(function (response) {
-
         return response.json();
     })
     .then(function (response) {
-
         const randomDrinkIndex = Math.floor(Math.random(response.drinks) * response.drinks.length)
-
         var drink = response.drinks[randomDrinkIndex].strDrink
-        
         var over21DrinkSearches = JSON.parse(localStorage.getItem("over 21"))
-
         over21DrinkSearches.unshift(drink)
-
         localStorage.setItem("over 21", JSON.stringify(over21DrinkSearches))
-
         getDrinkRecipe(drink)
         getDrinkPhoto(drink)
         getRecenOverList(drink)
-
     })
 }
 
@@ -412,23 +329,17 @@ function getDrinkRecipe(drink) {
     var initialUrl ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
 
     const fullUrl = initialUrl.concat(drink)
-
     fetch(fullUrl)
     .then(function (response) {
-
         return response.json();
     })
     .then(function (response) {
-
         var drinkName = response.drinks[0].strDrink
         var instructions = response.drinks[0].strInstructions
-
         var nameHeader = document.getElementById('drink-name')
         var instructionsParagraph = document.getElementById('instructions')
-
         nameHeader.textContent = drinkName
         instructionsParagraph.textContent = instructions
-
         var ingList = document.getElementById("ingredients")
         var ingListItem1 = document.createElement("li")
         var ingListItem2 = document.createElement("li")
@@ -522,7 +433,6 @@ function getDrinkRecipe(drink) {
         }
 
         localStorage.setItem("choice", "Waiting for a choice")
-
     })
 }
 
@@ -533,9 +443,7 @@ function getDrinkRecipe(drink) {
 function getRecenOverList(drink) {
     var over21search = JSON.parse(localStorage.getItem('over 21'))
     var overList = document.getElementById("recent-searches")
-
     let i = 0
-
     while (i < 5 && i < over21search.length){
         var searchListItem = document.createElement("li")
         searchListItem.textContent = over21search[i]
@@ -552,9 +460,7 @@ function getRecenOverList(drink) {
 function getRecenUnderList(drink) {
     var under21search = JSON.parse(localStorage.getItem('under 21'))
     var underList = document.getElementById("recent-searches")
-
     let i = 0
-
     while (i < 5 && i < under21search.length){
         var searchListItem = document.createElement("li")
         searchListItem.textContent = under21search[i]
@@ -571,15 +477,12 @@ function getRecenUnderList(drink) {
 function getDrinkPhoto(drink) {
     var initialUrl ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
     const fullPhotoUrl = initialUrl.concat(drink)
-    console.log(fullPhotoUrl)
     fetch(fullPhotoUrl)
     .then(function (response) {
         return response.json();
     })
     .then(function (response) {
-        console.log(fullPhotoUrl)
         var drinkPhoto = response.drinks[0].strDrinkThumb
-        console.log(drinkPhoto)
         var drinkImg = document.getElementById('drink-photo')
         drinkImg.style.width = '200px';
         drinkImg.style.height = 'auto';
@@ -589,8 +492,7 @@ function getDrinkPhoto(drink) {
 
 
 
-// non alcoholic drink photo
-
+//Non alcoholic drink photo
 
 function getNonAlcDrinkPhoto(drink) {
     var initialUrl = "https://api.pexels.com/v1/search?page=1&query="
@@ -612,6 +514,7 @@ function getNonAlcDrinkPhoto(drink) {
 }
 
 
+//Button listeners
 
 if (shakeBtn){
     shakeBtn.addEventListener('click', function(){

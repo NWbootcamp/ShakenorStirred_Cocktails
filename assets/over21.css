@@ -1,14 +1,15 @@
 body {
     background-color: #FCD5CE;
 }
+
 header {
     font-size: 50px;
     text-align: center;
     font-family: 'Lobster', cursive;
     
 }
-.card{
 
+.card{
     background-color: #F8EDEB;
     border-radius: 20px;
     border: solid;
@@ -16,11 +17,9 @@ header {
     text-align: center;
     font-family: 'Lobster', cursive;
     font-size: 15px;
-   
-
 }
 
-.col{
+.col {
     background-color: #FAE1DD;
     border-radius: 25px;
     border: solid;
@@ -29,7 +28,8 @@ header {
     text-align: center;
     box-shadow: 5px 10px #FEC5BB;
 }
-.col img{
+
+.col img {
     margin-top: 40px;
     width: 250px;
     margin-left: 30px;
@@ -37,45 +37,56 @@ header {
     border-radius: 25px;
 }
 
-.result-header{
-
+.result-header {
     margin-bottom: 0;
 }
 
 .container {
     float: right;
 }
-#side{
+
+#side {
     height: 600px;
+    width: 350px;
     margin-left: 10px;
 }
 
-#one{
+#one {
     margin-top: 10px;
     margin-bottom: 25px;
     margin-left: 10px;
     margin-left: 10px;
 }
-#two{
+
+#two {
     margin-top: 20px;
     margin-bottom: 25px;
     margin-left: 10px;
     margin-left: 10px;
-
 }
-#three{
+
+#three {
     margin-top: 20px;
     margin-bottom: 35px;
     margin-left: 10px;
     margin-left: 10px;
 }
+
 #logo {
-    width: 150px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline;
+}
+
+.foot-box {
+    display: flex;
+    justify-content: center;
 }
 
 footer {
     position: absolute;
-    right: 0;
     bottom: 0;
-    left: 0;
+    align-items: center;
+    width: 100%;
 }
