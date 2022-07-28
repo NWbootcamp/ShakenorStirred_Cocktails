@@ -33,6 +33,8 @@ From Git Hub repository, ShakenorStirred_Cocktails, click CODE box, select SSH a
 * Google Fonts - To pull unique fonts for website styling
 * JavaScript - Used to create the site's functionality including calling API's, verifying the Users Birth Year, button functionality, changing pages, and filling in text areas using pulled data and local storage.
 * Font Awesome - used to provide icons throughout the interphase.
+* Unsplash - Used to find photo in background of landing page
+* Canva - Used to create site logo
 
 ## APIs
 * https://www.thecocktaildb.com/api.php
@@ -49,24 +51,22 @@ From Git Hub repository, ShakenorStirred_Cocktails, click CODE box, select SSH a
 ![](./assets/images/Screen%20Shot%202022-07-26%20at%207.20.59%20PM.png)
 
 * If the user is under 21, they are directed to a page that displays a random non-alcoholic drink pulled from TheCocktailDB API including its name, ingredients, and instructions to make it. The page also shows a photo of the drink pulled from the Pexels API. Local storage is used to store past drink names which are then appended to the page. There is also a button that allows users to call new drinks.
-![]()
+![](./assets/images/Under21SC.png)
 
 * If the user is over 21, they are lead to a page that allows them to choose any random drink or a more curated list based on category of drink or type of liquor.
-![]()
+![](./assets/images/optionsSC.png)
 
 * Once the user has chosen an option, they are brought to a page that displays a random drink based on the user’s choices pulled from TheCocktailDB API including its name, photo, ingredients, and instructions to make it. Local storage is used to store past drink names which are then appended to the page. There is also buttons that allow users to call new drinks based on the same choices as the previous page.
-
+![](./assets/images/over21SC.png)
 ---
 
 ### Working Agreement
 How will your group handle disagreements?
-    -Vote with a 2 to 1 majority winning.
-    -Explore different ideas and express why they would/wouldn’t work
-    -Focus on what needs to happen to fulfill the project
-
+- Vote with a 2 to 1 majority winning.
+- Explore different ideas and express why they would/wouldn’t work
+- Focus on what needs to happen to fulfill the project
 When will you work?
 - In class, after class, and on Saturdays. We may work Wed/Fri as is needed, we may also work individually as our individual calendars allow
-
-- How will you ensure everyone feels like they are included?
+How will you ensure everyone feels like they are included?
 - Assign each of us a specific element to take the lead on.
-- If needed, we will be splitting the code evenly based on what needs to be accomplished for that week to allow us to stay on schedule. 
+- If needed, we will be splitting the code evenly based on what needs to be accomplished for that week to allow us to stay on schedule.
