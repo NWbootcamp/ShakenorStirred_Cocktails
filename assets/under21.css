@@ -1,12 +1,8 @@
 body {
     background-color: #FCF5DB;
 }
-/* header {
-    height: 30px;
-    margin: 5px 5px 5px 5px;
-} */
-.card{
 
+.card {
     background-color: #F1EAB7;
     border-radius: 20px;
     border: solid;
@@ -14,11 +10,9 @@ body {
     text-align: center;
     font-family: 'Lobster', cursive;
     font-size: 15px;
-   
-
 }
 
-.col{
+.col {
     background-color: #F1EAB7;
     border-radius: 25px;
     border: solid;
@@ -27,7 +21,8 @@ body {
     text-align: center;
     box-shadow: 5px 10px #EFEEF3;
 }
-.col img{
+
+.col img {
     margin-top: 40px;
     width: 250px;
     margin-left: 30px;
@@ -36,41 +31,47 @@ body {
 }
 
 .result-header{
-
     margin-bottom: 0;
 }
 
 .container {
     float: right;
-   
 }
 
-.collection{
+.collection {
 border-radius: 40px;
-/* margin-top: 160px; */
-
 }
-button{
+
+button {
     display: block;
 }
-.btn-large{
+
+.btn-large {
     background-color: #F9E8C0;
 }
 
-#side{
+#side {
     margin-top: 100px;
     height: 400px;
     margin-left: 20px;
 }
 
 #logo {
-    width: 150px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline;
+}
+
+.foot-box {
+    display: flex;
+    justify-content: center;
 }
 
 footer {
     position: absolute;
-    right: 0;
     bottom: 0;
-    left: 0;
+    align-items: center;
+    width: 100%;
 }
  
