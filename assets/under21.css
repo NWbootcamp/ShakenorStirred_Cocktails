@@ -57,6 +57,12 @@ button{
     background-color: #F9E8C0;
 }
 
+#side{
+    margin-top: 100px;
+    height: 400px;
+    margin-left: 20px;
+}
+
 #logo {
     width: 150px;
 }

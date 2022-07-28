@@ -45,4 +45,37 @@ header {
 .container {
     float: right;
 }
+#side{
+    height: 600px;
+    margin-left: 10px;
+}
 
+#one{
+    margin-top: 10px;
+    margin-bottom: 25px;
+    margin-left: 10px;
+    margin-left: 10px;
+}
+#two{
+    margin-top: 20px;
+    margin-bottom: 25px;
+    margin-left: 10px;
+    margin-left: 10px;
+
+}
+#three{
+    margin-top: 20px;
+    margin-bottom: 35px;
+    margin-left: 10px;
+    margin-left: 10px;
+}
+#logo {
+    width: 150px;
+}
+
+footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
